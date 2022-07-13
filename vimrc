@@ -1,4 +1,3 @@
-
 " leaderkey is <,>
 let mapleader = ","
 
@@ -28,6 +27,9 @@ Plug 'preservim/NERDTree', {'on':'NERDTreeToggle'}
 Plug 'airblade/vim-gitgutter', {'on':'GitGutterEnable'}
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'voldikss/vim-floaterm' "Терминал в vim"
+Plug 'chrisbra/vim-commentary' 
+" Plug 'tpope/vim-surround' скобки вокруг 
 call plug#end()
 
 
@@ -53,14 +55,20 @@ nnoremap <C-n> :NERDTreeToggle<CR> "Открыть/закрыть NERDTree - Ctr
 " GitGutter переключатель 
 nnoremap <C-g> :GitGutterEnable<CR> "Открыть/закрыть GitGutter - Ctrl+g
 
+" Открыть закрыть терминал в vim"
+nnoremap <C-T> :FloatermToggle<CR>
+
+" Закоментировать строку"
+nnoremap <C-/> :Commentary<CR>
+
 " Перемещение по окнам
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-map <C-v> <C-w>v " Вертикальное разбиение
-map <C-q> <C-w>q " Выход из окна
-map <C-s> <C-w>s " Горизонтальное разбиение
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>h <C-w>h
+map <leader>l <C-w>l
+map <leader>v <C-w>v " Вертикальное разбиение
+map <leader>q <C-w>q " Выход из окна
+map <leader>s <C-w>s " Горизонтальное разбиение
 
 " Автодобавление закрывающей скобки/кавычки "
 imap [ []<LEFT>
@@ -88,3 +96,7 @@ nmap вв dd
 "---выход из режима вставки ii--- "
 inoremap ii <ESC>
 inoremap шш <ESC>
+
+"---настройка отступов при коментах в yaml файлах---"
+autocmd FileType yaml setlocal indentkeys-=0#
+
