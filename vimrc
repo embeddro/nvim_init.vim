@@ -59,7 +59,7 @@ nnoremap <C-g> :GitGutterEnable<CR> "Открыть/закрыть GitGutter - C
 nnoremap <C-T> :FloatermToggle<CR>
 
 " Закоментировать строку"
-nnoremap <C-/> :Commentary<CR>
+nnoremap <C-_> :Commentary<CR>
 
 " Перемещение по окнам
 map <leader>j <C-w>j
