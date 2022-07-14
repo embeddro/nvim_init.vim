@@ -29,6 +29,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm' "Терминал в vim"
 Plug 'chrisbra/vim-commentary' 
+Plub 'jiangmiao/auto-pairs'
 " Plug 'tpope/vim-surround' скобки вокруг 
 call plug#end()
 
@@ -69,14 +70,6 @@ map <leader>l <C-w>l
 map <leader>v <C-w>v " Вертикальное разбиение
 map <leader>q <C-w>q " Выход из окна
 map <leader>s <C-w>s " Горизонтальное разбиение
-
-" Автодобавление закрывающей скобки/кавычки "
-imap [ []<LEFT>
-imap ( ()<LEFT>
-imap { {}<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-
 
 "---навигация на русской раскладке---"
 nmap о j
