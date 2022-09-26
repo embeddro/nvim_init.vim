@@ -1,36 +1,40 @@
 " leaderkey is <,>
 let mapleader = ","
 
+" Настройки табуляции
 retab
-syntax on
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab " Пробелы вместо <Tab>
+set autoindent " копирует отступы с текущей строки при добавлении новой
+set smartindent
+
 filetype on
 filetype plugin indent on
-set background=light
 set nobackup
 set title
-set ruler
 set encoding=utf-8
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
 set visualbell
-set smartindent
 set fileformat=unix
 set t_Co=256
 set autochdir
+set number
 
 " vim-plug manager plagins
 call plug#begin()
 Plug 'preservim/NERDTree', {'on':'NERDTreeToggle'}
 Plug 'airblade/vim-gitgutter', {'on':'GitGutterEnable'}
+Plug 'tpope/vim-fugitive' "Для работы с Git 
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm' "Терминал в vim"
-Plug 'chrisbra/vim-commentary' 
-Plub 'jiangmiao/auto-pairs'
-" Plug 'tpope/vim-surround' скобки вокруг 
+Plug 'chrisbra/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround' " скобки вокруг 
+Plug 'rafi/awesome-vim-colorschemes' "темы 
+Plug 'vim-airline/vim-airline' "строка статуса 
 call plug#end()
 
 
@@ -59,8 +63,8 @@ nnoremap <C-g> :GitGutterEnable<CR> "Открыть/закрыть GitGutter - C
 " Открыть закрыть терминал в vim"
 nnoremap <C-T> :FloatermToggle<CR>
 
-" Закоментировать строку"
-nnoremap <C-_> :Commentary<CR>
+" Закоментировать выделение"
+map <C-_> gc
 
 " Перемещение по окнам
 map <leader>j <C-w>j
@@ -93,3 +97,19 @@ inoremap шш <ESC>
 "---настройка отступов при коментах в yaml файлах---"
 autocmd FileType yaml setlocal indentkeys-=0#
 
+" Цветовая тема
+syntax enable
+set background=dark
+colorscheme tender
+
+" добавление название ветки в lightline plugin
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
