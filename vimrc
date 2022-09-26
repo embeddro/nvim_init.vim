@@ -102,6 +102,10 @@ syntax enable
 set background=dark
 colorscheme tender
 
+" Системный буфер обмена добавить пакет vim-gtk3
+noremap <Leader>y "+y 
+noremap <Leader>p "+p
+
 " добавление название ветки в lightline plugin
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -113,3 +117,4 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
