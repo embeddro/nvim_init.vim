@@ -1,6 +1,10 @@
 " leaderkey is <,>
 let mapleader = ","
 
+" Настройки орфографии
+set spelllang=en_us,ru_ru
+set spell
+
 " Настройки табуляции
 retab
 set tabstop=2
@@ -35,6 +39,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround' " скобки вокруг 
 Plug 'rafi/awesome-vim-colorschemes' "темы 
 Plug 'vim-airline/vim-airline' "строка статуса 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Просмотр md 
+Plug 'tibabit/vim-templates' "добавление темплейтов 
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 
@@ -63,7 +70,7 @@ nnoremap <C-g> :GitGutterEnable<CR> "Открыть/закрыть GitGutter - C
 " Открыть закрыть терминал в vim"
 nnoremap <C-T> :FloatermToggle<CR>
 
-" Закоментировать выделение"
+" Закоментировать выделенный фрагмент"
 map <C-_> gc
 
 " Перемещение по окнам
@@ -105,6 +112,15 @@ colorscheme tender
 " Системный буфер обмена добавить пакет vim-gtk3
 noremap <Leader>y "+y 
 noremap <Leader>p "+p
+
+" Настойки для vim-template
+let g:tmpl_author_name = 'Aleksey Prusakov'
+let g:tmpl_author_email= 'devops.76.pf@gmail.com'
+let g:tmpl_company     = 'PizzaFabrika'
+let g:tmpl_project     = '911'
+
+"vim-repeat support
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 " добавление название ветки в lightline plugin
 let g:lightline = {
