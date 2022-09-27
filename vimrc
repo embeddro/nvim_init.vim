@@ -33,14 +33,14 @@ Plug 'airblade/vim-gitgutter', {'on':'GitGutterEnable'}
 Plug 'tpope/vim-fugitive' "Для работы с Git 
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'voldikss/vim-floaterm' "Терминал в vim"
+Plug 'voldikss/vim-floaterm' "Терминал в vim
 Plug 'chrisbra/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround' " скобки вокруг 
 Plug 'rafi/awesome-vim-colorschemes' "темы 
 Plug 'vim-airline/vim-airline' "строка статуса 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Просмотр md 
-Plug 'tibabit/vim-templates' "добавление темплейтов 
+Plug 'tibabit/vim-templates' "добавление темплейтов должны лежать в папке плагина
 Plug 'tpope/vim-repeat'
 call plug#end()
 
@@ -68,7 +68,9 @@ nnoremap <C-n> :NERDTreeToggle<CR> "Открыть/закрыть NERDTree - Ctr
 nnoremap <C-g> :GitGutterEnable<CR> "Открыть/закрыть GitGutter - Ctrl+g
 
 " Открыть закрыть терминал в vim"
-nnoremap <C-T> :FloatermToggle<CR>
+nnoremap <silent> <C-T> :FloatermToggle<CR>
+tnoremap <silent> <C-T>  <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_keymap_toggle = '<F12>'
 
 " Закоментировать выделенный фрагмент"
 map <C-_> gc
@@ -110,8 +112,8 @@ set background=dark
 colorscheme tender
 
 " Системный буфер обмена добавить пакет vim-gtk3
-noremap <Leader>y "+y 
-noremap <Leader>p "+p
+noremap <Leader>y "+y  "Копировать в системный буфер обмена
+noremap <Leader>p "+p  "Вставить из системного буфера
 
 " Настойки для vim-template
 let g:tmpl_author_name = 'Aleksey Prusakov'
