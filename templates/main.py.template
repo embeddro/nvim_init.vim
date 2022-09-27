@@ -1,0 +1,19 @@
+#!/usr/bin/env python3 
+
+######################################################################
+# author      : {{NAME}} ({{EMAIL}}) 
+# company     : {{COMPANY}}
+# team        : {{PROJECT}}
+# file        : {{FILE}}
+# created     : {{TODAY}}
+######################################################################
+
+import os
+
+
+def main():
+  pass
+
+
+if __name__ == '__main__':
+  main()

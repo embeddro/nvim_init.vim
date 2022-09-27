@@ -1,0 +1,27 @@
+######################################################################
+# author      : {{NAME}} ({{EMAIL}}) 
+# company     : {{COMPANY}}
+# team        : {{PROJECT}}
+# file        : {{FILE}}
+# created     : {{TODAY}}
+######################################################################
+
+FROM image:tag
+
+RUN \
+    some_command && \
+    some_command && \
+    some_command
+
+WORKDIR /app
+
+COPY . .
+
+RUN \
+    some_command && \
+    some_command && \
+    some_command
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+EXPOSE 8080

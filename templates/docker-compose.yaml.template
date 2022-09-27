@@ -1,0 +1,55 @@
+######################################################################
+# author      : {{NAME}} ({{EMAIL}}) 
+# company     : {{COMPANY}}
+# team        : {{PROJECT}}
+# file        : {{FILE}}
+# created     : {{TODAY}}
+######################################################################
+
+version: "3.5"
+
+services:
+  test_server:
+    container_name: some_name
+    build: ./server/.
+    image: some_name:local
+    ports:
+      - 1234:1234
+    volumes:
+      - host_folder:container_folder
+    environment:
+      SOME_VAR: ${VALUE}
+    command:
+      - "--makesomething"
+    restart: always
+    deploy:
+      resouces:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.3'
+          memory: 512M
+    env_file:
+      - ./env
+
+  client:
+    container_name: clinet
+    image: image.registry.ru:4567/namespace/image_name:tag
+    depends_on:
+      - server
+
+networks:
+  some_net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+
+volumes:
+  some_volume1:
+  some_volume2:
+

@@ -1,0 +1,7 @@
+.git
+.cache
+.venv
+*.md
+.helm
+.idea
+
