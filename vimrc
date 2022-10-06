@@ -42,6 +42,9 @@ Plug 'vim-airline/vim-airline' "строка статуса
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Просмотр md 
 Plug 'tibabit/vim-templates' "добавление темплейтов должны лежать в папке плагина
 Plug 'tpope/vim-repeat'
+Plug 'SirVer/ultisnips' "движек сниппетов
+Plug 'honza/vim-snippets' "Набор готовых сниппетов https://github.com/honza/vim-snippets/tree/master/snippets
+Plug 'chr4/nginx.vim' "Плагин для подсветки синтаксиса nginx
 call plug#end()
 
 
@@ -103,6 +106,11 @@ nmap вв dd
 inoremap ii <ESC>
 inoremap шш <ESC>
 
+" Setting snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 "---настройка отступов при коментах в yaml файлах---"
 autocmd FileType yaml setlocal indentkeys-=0#
 
@@ -136,3 +144,18 @@ let g:lightline = {
       \ },
       \ }
 
+" Spell Check  F2 - toggle language
+let b:myLang=0
+let g:myLangList=["nospell","ru_ru,en_gb","en_gb","ru_ru"]
+function! ToggleSpell()
+  let b:myLang=b:myLang+1
+  if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+  if b:myLang==0
+    setlocal nospell
+  else
+    execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+  endif
+  echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
+
+nmap <silent> <F2> :call ToggleSpell()<CR>
