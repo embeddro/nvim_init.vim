@@ -1,10 +1,6 @@
 " leaderkey is <,>
 let mapleader = ","
 
-" Настройки орфографии
-set spelllang=en_us,ru_ru
-set spell
-
 " Настройки табуляции
 retab
 set tabstop=2
@@ -44,7 +40,9 @@ Plug 'tibabit/vim-templates' "добавление темплейтов долж
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips' "движек сниппетов
 Plug 'honza/vim-snippets' "Набор готовых сниппетов https://github.com/honza/vim-snippets/tree/master/snippets
-Plug 'chr4/nginx.vim' "Плагин для подсветки синтаксиса nginx
+Plug 'sheerun/vim-polyglot' "Подсветка синтаксиса для всего
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "Плагин для установки быстрого поиска
+Plug 'junegunn/fzf.vim' "Плагин для быстрого поиска
 call plug#end()
 
 
